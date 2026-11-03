@@ -257,6 +257,43 @@ footer{padding:36px var(--pad) calc(40px + env(safe-area-inset-bottom));border-t
 /* wallet actions (Get bWalletX) stay bWalletX gold, as on every b*X site */
 .btn-gold{background:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);color:#120c00;box-shadow:0 0 0 1px rgba(255,210,77,.4),0 14px 40px -12px rgba(245,184,0,.65),inset 0 1px 0 rgba(255,255,255,.55)}
 .btn-gold:hover{box-shadow:0 0 0 1px rgba(255,210,77,.6),0 20px 46px -12px rgba(245,184,0,.8),inset 0 1px 0 rgba(255,255,255,.55)}
+/* ---- On sale carousel (house rail from bphotosx.com). Fed by /events.json until the bTicketsX index API exists;
+   empty state until the first event goes on sale. ---- */
+.onsale{padding-bottom:clamp(40px,6vw,80px)}
+.onsale .xs-cat{margin-bottom:32px}
+.rail-wrap{max-width:1500px;margin:0 auto}
+.rail-h{display:flex;justify-content:space-between;align-items:center;margin:0 0 18px}
+.rail-h[hidden],.rail[hidden],.sale-empty[hidden]{display:none}
+.rail-h h3{font:900 11px/1 var(--disp);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.arrows button:hover:not(:disabled){border-color:rgba(255,255,255,.4);background:#10140a}
+.arrows button:disabled{opacity:.3;cursor:default}
+.arrows svg{width:16px;height:16px}
+.rail{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:var(--pad);margin:0 calc(var(--pad) * -1);padding:6px var(--pad) 22px;scrollbar-width:none;overscroll-behavior-x:contain;list-style:none}
+.rail::-webkit-scrollbar{display:none}
+.rail li{flex:none;width:clamp(200px,20vw,280px);scroll-snap-align:start}
+.tcard{display:block;text-decoration:none}
+.tcard .tp{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#e4ff8f,#c8f03c 55%,#9fc522);box-shadow:0 18px 40px -22px #000,0 0 0 1px rgba(255,255,255,.07);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.tcard .tp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tcard .tp img+.tst+.tin{background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff}
+.tcard:hover .tp,.tcard:focus-visible .tp{transform:translateY(-6px) scale(1.025);box-shadow:0 30px 56px -22px rgba(200,240,60,.5),0 0 0 1px rgba(221,255,122,.55)}
+.tcard .tst{position:absolute;left:12px;top:12px;padding:6px 9px;border-radius:99px;background:#0c1200;color:var(--acc-hi);font:800 10px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;font-style:normal}
+.tcard .tin{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 16px;color:#0c1200}
+.tcard .tin small{display:block;font:700 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.tcard .tin strong{display:block;margin-top:6px;font:700 22px/1.05 'Space Grotesk',sans-serif;letter-spacing:-.03em}
+.tcard b{display:block;margin-top:14px;font-weight:800;font-size:15px;line-height:1.25;color:#fff}
+.tcard span{display:block;margin-top:6px;color:var(--muted);font-size:14px}
+.tcard span.fr{color:var(--acc-hi);font-weight:600}
+.sale-empty{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:radial-gradient(60% 120% at 50% 0,rgba(200,240,60,.08),transparent 70%),#050505}
+.ghosts{display:flex;gap:clamp(12px,1.4vw,20px);padding:28px;opacity:.55;-webkit-mask-image:linear-gradient(90deg,#000 40%,transparent);mask-image:linear-gradient(90deg,#000 40%,transparent)}
+.ghosts i{flex:none;width:clamp(150px,16vw,220px);aspect-ratio:3/4;border-radius:14px;border:1.5px dashed rgba(221,255,122,.28)}
+.sale-msg{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px clamp(28px,5vw,72px);background:linear-gradient(90deg,transparent 0,rgba(5,5,5,.6) 35%,#050505 60%);padding-left:max(40%,28px)}
+.sale-msg b{font:700 clamp(24px,2.6vw,34px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.03em;color:#fff}
+.sale-msg p{color:var(--muted);max-width:440px;margin-top:10px;font-size:16px}
+.sale-msg .btn{margin-top:20px;min-height:46px;font-size:13px}
+@media (max-width:700px){.ghosts{padding:20px}.sale-msg{position:static;padding:4px 22px 26px;background:none}.ghosts{height:120px;overflow:hidden}}
+@media (prefers-reduced-motion:reduce){.tcard .tp{transition:none}}
 .legal{max-width:1500px;margin:18px auto 0;color:var(--dim);font-size:13px}
 
 @media (prefers-reduced-motion:reduce){

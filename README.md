@@ -13,7 +13,7 @@ pnpm install
 pnpm build   # html-validate + local asset check
 ```
 
-OG image source: `media-src/og-bticketsx-v1.html` (render 1200x630 with headless Chrome). Deploys from GitHub via Vercel (`vercel.json`: static, output `.`, main only).
+OG image source: `media-src/og-bticketsx-v2.html` (render 1200x630 with headless Chrome). Deploys from GitHub via Vercel (`vercel.json`: static, output `.`, main only).
 
 ## Licence
 
